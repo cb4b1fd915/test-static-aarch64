@@ -1,3 +1,9 @@
+use reqwest;
+
 fn main() {
-    println!("Hello, world!");
+    let body = reqwest::blocking::get("https://lodz.hackerspace.pl/en.html")
+        .unwrap()
+        .text()
+        .unwrap();
+    println!("body = {:?}", body);
 }
